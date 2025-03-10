@@ -6,6 +6,7 @@ import { connectDB } from "./config/database";
 import api2Routes from './routes/api2r';
 import api3Routes from './routes/api3r';
 import protestRoutes from './routes/Protestation';
+import fichierRoutes from "./routes/fichier";
 import { notFound, errorHandler } from './middleware/errorhandler';
 
 dotenv.config();
@@ -24,6 +25,7 @@ connectDB();
 app.use('/appi', api3Routes);
 app.use('/api', api2Routes);
 app.use('/app', protestRoutes);
+app.use("/ati/files", fichierRoutes);
 
 // Middleware 404 et gestion des erreurs
 app.use(notFound);
